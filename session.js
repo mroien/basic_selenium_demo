@@ -1,0 +1,10 @@
+var webdriver = require("selenium-webdriver");
+var browser = new webdriver.Builder().forBrowser('chrome').build();
+browser.get('http://www.google.com');
+browser.findElement(webdriver.By.className('sbico')).click();
+browser.findElement({name: 'q'}).sendKeys(' What time is it?');
+browser.findElement( {name: 'q' }).sendKeys(webdriver.Key.Enter);
+browser.findElement( {name: 'q' }).sendKeys(webdriver.Key.Enter);
+browser.findElement( {xpath: '//*[@id="rso"]/div[1]/div[1]/div/h3/a'}).click();
+browser.getTitle().then(function(title) { console.log(title); });
+browser.quit();
